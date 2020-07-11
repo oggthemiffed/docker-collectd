@@ -1,0 +1,20 @@
+##############################################################################
+# Logging                                                                    #
+#----------------------------------------------------------------------------#
+# Plugins which provide logging functions should be loaded first, so log     #
+# messages generated when loading or configuring other plugins can be        #
+# accessed.                                                                  #
+##############################################################################
+
+LoadPlugin logfile
+LoadPlugin syslog
+
+<Plugin "logfile">
+    LogLevel "info"
+    File "/var/log/collectd.log"
+    Timestamp true
+</Plugin>
+
+<Plugin syslog>
+    LogLevel info
+</Plugin>
