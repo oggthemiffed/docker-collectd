@@ -2,7 +2,7 @@ LoadPlugin "write_graphite"
 
 <Plugin "write_graphite">
     <Node "main">
-       Host "{{ COLLECTD_GRAPHITE_HOST|default('locahost') }}"
+       Host "{{ COLLECTD_GRAPHITE_HOST|default('localhost') }}"
        Port {{ COLLECTD_GRAPHITE_PORT|default('2003') }}
        Prefix "{{ COLLECTD_GRAPHITE_PREFIX|default('servers') }}"
        #Postfix ""
