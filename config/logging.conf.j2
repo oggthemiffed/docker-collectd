@@ -6,15 +6,4 @@
 # accessed.                                                                  #
 ##############################################################################
 
-LoadPlugin logfile
 LoadPlugin syslog
-
-<Plugin "logfile">
-    LogLevel "info"
-    File "/var/log/collectd.log"
-    Timestamp true
-</Plugin>
-
-<Plugin syslog>
-    LogLevel info
-</Plugin>

@@ -59,3 +59,4 @@ Include "{{ COLLECTD_LOGGING|default('/etc/collectd/logging.conf') }}"
 <Target "write">
     Plugin "{{ COLLECTD_WRITE_PLUGIN|default('write_graphite') }}"
 </Target>
+
