@@ -10,7 +10,7 @@ COPY				config/collectd.conf.d /etc/collectd/collectd.conf.d
 COPY				scripts/run.sh /opt/collectd/run.sh
 
 
-RUN					apk add --no-cache collectd dos2unix util-linux && \
+RUN					apk add --no-cache collectd collectd-python dos2unix util-linux && \
 					pip install collectd j2cli && \
 					dos2unix /opt/collectd/run.sh && \
 					find /etc/collectd -type f -name '*.j2' -exec dos2unix "{}" \; && \
