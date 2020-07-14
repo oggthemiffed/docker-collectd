@@ -4,7 +4,7 @@ LoadPlugin "write_graphite"
     <Node "main">
        Host "{{ COLLECTD_GRAPHITE_HOST|default('localhost') }}"
        Port {{ COLLECTD_GRAPHITE_PORT|default('2003') }}
-       Prefix "{{ COLLECTD_GRAPHITE_PREFIX|default('servers') }}"
+       Prefix "{{ COLLECTD_GRAPHITE_PREFIX|default('servers.') }}"
        #Postfix ""
        Protocol "tcp"
        LogSendErrors false
