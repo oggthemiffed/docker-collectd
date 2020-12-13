@@ -50,8 +50,8 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ${{ steps.docker_meta.outputs.tags }}
-            pibcak/scaleway-ip-updater:latest
-            pibcak/scaleway-ip-updater:1.${{ github.run_number }}.${{ github.run_id }}
+            pibcak/docker-collectd:latest
+            pibcak/docker-collectd:1.${{ github.run_number }}.${{ github.run_id }}
           labels: |
             ${{ steps.docker_meta.outputs.labels }}
             org.opencontainers.image.title=docker-collectd
