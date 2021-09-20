@@ -1,4 +1,4 @@
-FROM				python:2-slim
+FROM				python:3-slim
 
 RUN					apt-get update && \
                     apt-get install -y --no-install-recommends collectd dos2unix util-linux && \
@@ -11,6 +11,7 @@ RUN					apt-get update && \
 COPY				config/collectd.conf.j2 /etc/collectd/collectd.conf.j2
 COPY				config/logging.conf.j2 /etc/collectd/logging.conf.j2
 COPY				config/collectd.conf.d /etc/collectd/collectd.conf.d
+COPY				config/output.conf.d /etc/collectd/output.conf.d
 COPY				scripts/run.sh /opt/collectd/run.sh
 
 RUN					dos2unix /opt/collectd/run.sh && \
@@ -18,7 +19,11 @@ RUN					dos2unix /opt/collectd/run.sh && \
 					apt-get auto-remove -y && \
 					rm -rf /var/lib/apt/lists/*
 
-VOLUME				/opt/collectd/extra-configs
+VOLUME				[ "/opt/collectd/extra-configs", "/data"]
+
+ENV 				CSV_OUTPUT="true"
+ENV 				GRAPHITE_OUTPUT="false"
+ENV 				COLLECTD_ENABLE_LOG_FILE='false'
 
 ENTRYPOINT			["/opt/collectd/run.sh"]
 					

@@ -1,0 +1,6 @@
+LoadPlugin "csv"
+
+<Plugin "csv">
+  DataDir "{{ CSV_OUTPUT_FILE|default('/data/csv') }}"
+  StoreRates "{{ CSV_OUTPUT_FILE_STORE_RATES|default('true') }}"
+</Plugin>

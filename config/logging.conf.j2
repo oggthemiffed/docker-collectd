@@ -7,3 +7,12 @@
 ##############################################################################
 
 LoadPlugin syslog
+
+{% if COLLECTD_ENABLE_LOG_FILE|default('true')|lower == 'true' %}
+LoadPlugin "logfile"
+<Plugin "logfile">
+  LogLevel "{{ COLLECTD_LOG_LEVEL|default('info')}}"
+  File "{{ COLLECTD_LOG_FILE|default('/var/log/collectd.log')}}"
+  Timestamp true
+</Plugin>
+{% endif %}
