@@ -8,11 +8,11 @@ RUN					apt-get update && \
 
 RUN				    mkdir -p /etc/collectd/collectd.conf.d && \
 					mkdir -p /opt/collectd/ && \
-					mkdir -p /opt/collectd/extra-configs
+					mkdir -p /opt/collectd/extra-configs && \
+					mkdir -p /etc/collectd/output.conf.d
 
 COPY				config/collectd.conf.j2 /etc/collectd/collectd.conf.j2
 COPY				config/logging.conf.j2 /etc/collectd/logging.conf.j2
-COPY				config/collectd.conf.d /etc/collectd/collectd.conf.d
 COPY				config/output.conf.d /etc/collectd/output.conf.d
 COPY				scripts/run.sh /opt/collectd/run.sh
 
