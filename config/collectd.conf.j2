@@ -57,18 +57,18 @@ Include "{{ COLLECTD_LOGGING|default('/etc/collectd/logging.conf') }}"
     Filter "*.conf"
 </Include>
 
-{% if  GRAPHITE_OUTPUT|lower == 'true' %}
+{% if  COLLECTD_GRAPHITE_OUTPUT|default('true')|lower == 'true' %}
 Include "/etc/collectd/output.conf.d/graphite_write.conf"
 {% endif %}
-{% if  CSV_OUTPUT|lower == 'true' %}
+{% if  COLLECTD_CSV_OUTPUT|default('true')|lower == 'true' %}
 Include "/etc/collectd/output.conf.d/csv_write.conf"
 {% endif %}
 
 <Target "write">
-{% if  GRAPHITE_OUTPUT|lower == 'true' %}
+{% if  COLLECTD_GRAPHITE_OUTPUT|lower == 'true' %}
     Plugin "write_graphite"
 {% endif %}
-{% if  CSV_OUTPUT|lower == 'true' %}
+{% if  COLLECTD_CSV_OUTPUT|lower == 'true' %}
     Plugin "csv"
 {% endif %}
 </Target>
