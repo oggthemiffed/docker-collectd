@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # dos2unix everything
 find /opt/collectd/scripts -type f \( -iname \* \) -exec dos2unix {} + 
