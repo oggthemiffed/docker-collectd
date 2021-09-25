@@ -14,5 +14,12 @@ To get a simple container running just run the following command
 docker run \ 
     -v /path/to/host/config/folder:/opt/collectd/extra-configs \
     pibcak/docker-collectd:latest
-
 ```
+
+This will run the container with no configured collectors.
+
+## Configuring connectors
+
+To configure a connector we can supply a set of configuration files (standard collectd configuration files). 
+
+Within these files you can use jinja2 templating
