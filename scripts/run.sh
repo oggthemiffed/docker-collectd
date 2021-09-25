@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# dos2unix everything
+find /opt/collectd/scripts -type f \( -iname \* \) -exec dos2unix {} + 
+find /opt/collectd/scripts -type f \( -iname \*.conf -o -iname \*.j2 \) -exec dos2unix {} + 
+
 # Detect requirements.txt and run if needed
 find /opt/collectd/scripts -type f \( -iname requirements\*.txt \) -exec pip {} + 
 

@@ -17,7 +17,6 @@ COPY				config/output.conf.d /etc/collectd/output.conf.d
 COPY				scripts/run.sh /opt/collectd/run.sh
 
 RUN					dos2unix /opt/collectd/run.sh && \
-					apt-get remove -y --purge dos2unix && \
 					apt-get auto-remove -y && \
 					rm -rf /var/lib/apt/lists/*
 
