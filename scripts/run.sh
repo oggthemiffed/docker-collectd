@@ -5,7 +5,7 @@ find /opt/collectd/scripts -type f \( -iname \* \) -exec dos2unix {} +
 find /opt/collectd/scripts -type f \( -iname \*.conf -o -iname \*.j2 \) -exec dos2unix {} + 
 
 # Detect requirements.txt and run if needed
-find /opt/collectd/scripts -type f \( -iname requirements\*.txt \) -exec pip {} \;
+find /opt/collectd/scripts -type f \( -iname requirements\*.txt \) -exec pip install -r {} +
 
 # Copy over the extra files that we might have
 find /opt/collectd/extra-configs -type f \( -iname \*.conf -o -iname \*.j2 \) -exec cp /etc/collectd/collectd.conf.d {} + 
