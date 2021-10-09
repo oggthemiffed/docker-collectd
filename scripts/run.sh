@@ -9,7 +9,7 @@ find /opt/collectd/scripts -type f \( -iname \*.conf -o -iname \*.j2 \) -exec do
 find /opt/collectd/scripts -type f \( -iname requirements\*.txt \) -exec pip install -r {} +
 
 # Copy over the extra files that we might have
-find /opt/collectd/extra-configs -type f \( -iname \*.conf -o -iname \*.j2 \) -exec cp {} /etc/collectd/collectd.conf.d/. + 
+find /opt/collectd/extra-configs -type f \( -iname \*.conf -o -iname \*.j2 \) -exec cp "{}" /etc/collectd/collectd.conf.d/ + 
 
 find /etc/collectd -type f -iname '*.j2' -exec sh -c 'j2 -o "${0%.j2}" $0' {} \; -exec sh -c 'rm -f $0' {} \;
 
