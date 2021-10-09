@@ -30,7 +30,7 @@ FQDNLookup true
 # plugin name.                                                               #
 # Disabled by default.                                                       #
 #----------------------------------------------------------------------------#
-CollectInternalStats true
+CollectInternalStats {{ COLLECTD_COLLECT_INTERNAL_STATS|default(false)}}
 
 #----------------------------------------------------------------------------#
 # Interval at which to query values. This may be overwritten on a per-plugin #
