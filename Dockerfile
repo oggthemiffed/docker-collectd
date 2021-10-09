@@ -18,7 +18,8 @@ COPY				scripts/run.sh /opt/collectd/run.sh
 
 RUN					dos2unix /opt/collectd/run.sh && \
 					apt-get auto-remove -y && \
-					rm -rf /var/lib/apt/lists/*
+					rm -rf /var/lib/apt/lists/* && \
+					echo "LD_PRELOAD=/usr/local/lib/libpython3.10.so" >> /etc/default/collectd
 
 VOLUME				[ "/opt/collectd/extra-configs", "/data", "/opt/collectd/scripts"]
 
